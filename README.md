@@ -101,6 +101,35 @@ The script backs up existing configs to a timestamped directory before copying.
 - Add project-specific agents/skills to `project/` as needed
 - Add stack-specific skills (e.g., `react`, `python`) to `home/skills/`
 
+## Cursor Sync
+
+`cursor_sync.py` converts `home/` configs to Cursor's `.cursor/rules/` and `.cursor/commands/` format, so you only maintain one source of truth.
+
+```bash
+# Preview all converted output (no files written)
+python cursor_sync.py preview
+
+# Deploy to a project
+python cursor_sync.py deploy /path/to/myproject
+
+# Deploy to global Cursor config (~/.cursor/)
+python cursor_sync.py deploy --global
+
+# Skip files that already exist
+python cursor_sync.py deploy /path/to/myproject --no-clobber
+```
+
+**What gets generated:**
+
+| Source | Output |
+|--------|--------|
+| `home/skills/*/SKILL.md` | `.cursor/rules/skill-{name}.mdc` |
+| `home/agents/*.md` | `.cursor/rules/agent-{name}.mdc` |
+| `home/commands/*.md` | `.cursor/commands/{name}.md` |
+| `home/CLAUDE.md` | `.cursor/rules/global-preferences.mdc` |
+
+Requires `pyyaml` (`pip install pyyaml`).
+
 ## Resources
 
 See [catalogue/RESOURCES.md](catalogue/RESOURCES.md) for curated links to community configs, awesome lists, and guides.
