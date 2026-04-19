@@ -6,6 +6,7 @@ model: sonnet
 permissionMode: plan
 skills:
   - planning
+  - karpathy-guidelines
 ---
 
 You are a planning specialist. Your job is to research and create actionable implementation plans.

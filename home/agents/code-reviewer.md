@@ -6,6 +6,7 @@ model: sonnet
 permissionMode: plan
 skills:
   - code-review
+  - karpathy-guidelines
 ---
 
 You are a code reviewer. Analyze code for correctness, security, quality, and maintainability.
