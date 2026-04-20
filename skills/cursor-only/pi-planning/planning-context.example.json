@@ -1,0 +1,22 @@
+{
+  "prd": {
+    "url": "https://docs.google.com/document/d/YOUR_PRD_DOC_ID",
+    "summary": ""
+  },
+  "team_milestones": {
+    "url": "https://docs.google.com/document/d/YOUR_MILESTONES_DOC_ID",
+    "summary": ""
+  },
+  "kpis": {
+    "url": "https://docs.google.com/document/d/YOUR_KPI_DOC_ID",
+    "summary": ""
+  },
+  "prev_roadmap": {
+    "url": "https://docs.google.com/document/d/YOUR_PREV_ROADMAP_DOC_ID",
+    "summary": ""
+  },
+  "output_template": {
+    "url": "",
+    "summary": "(Optional) Template document that defines the structure/format for the output planning doc. Leave empty to auto-derive from prev_roadmap or start from scratch."
+  }
+}
