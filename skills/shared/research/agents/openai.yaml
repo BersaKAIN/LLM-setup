@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research"
+  short_description: "Read papers, synthesize evidence, and plan research"
+  default_prompt: "Use $research to investigate this question, preserve compact evidence and research state, and prioritize the next useful investigation."
+policy:
+  allow_implicit_invocation: true
