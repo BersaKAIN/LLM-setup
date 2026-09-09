@@ -1,11 +1,12 @@
-# Agentic Setup
+# LLM-setup
 
-Unified AI coding configs for Claude Code and Cursor. One repo, one install, both platforms.
+Reusable AI coding configurations and research workflows. The installer configures Claude Code and Cursor; the Research skill also includes Codex invocation metadata.
 
 ## Quick Start
 
 ```bash
-git clone <your-repo-url> ~/dev/agentic_setup
+git clone https://github.com/BersaKAIN/LLM-setup.git ~/dev/LLM-setup
+cd ~/dev/LLM-setup
 ./install.sh home
 ```
 
@@ -33,6 +34,7 @@ skills/                          Skills (symlinked, shared across platforms)
 │   ├── notebooklm/
 │   ├── paper-reader/
 │   ├── planning/
+│   ├── research/
 │   ├── security-audit/
 │   ├── session-handoff/
 │   └── tdd/
@@ -103,6 +105,21 @@ project/                         Project templates (deployed per-repo)
    - `skills/claude-only/` — depends on Claude Code features
 2. Add a `SKILL.md` with YAML frontmatter (`name`, `description`)
 3. Re-run `./install.sh home` to create the symlink
+
+## Research Skill
+
+[Research](skills/shared/research/SKILL.md) supports paper reading, literature review, evidence critique, and research planning. It separates explore, extract, synthesize, and plan modes; partitions context across subagents when useful; and preserves compact evidence packets and research state.
+
+The [evidence and state reference](skills/shared/research/references/evidence-and-state.md) retains citations, quantitative results, assumptions, contradictions, uncertainty, rejected hypotheses, decisions, and open questions. Next investigations are prioritized by expected information gain and impact on the conclusion.
+
+Run `./install.sh home` to install shared skills for Claude Code and Cursor. For Codex, copy the Research skill from the repository root into your personal skills directory (back up any existing `research` folder first):
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R skills/shared/research "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Invoke in Codex with `$research`, for example: “Use $research to compare these papers, identify conflicting evidence, and prioritize the next experiment.” Automatic selection is enabled in `agents/openai.yaml`. In other assistants, ask to use the Research skill with their supported skill invocation mechanism.
 
 ## Sources
 
