@@ -1,28 +1,11 @@
 ---
-description: "Read an academic paper and produce structured takeaways and notes"
+description: "Read an academic paper using the paper-reader skill and save a technical review"
 ---
 
-The user wants to read and analyze an academic paper. Follow this workflow:
+Follow the **paper-reader** skill in `skills/shared/paper-reader/SKILL.md` as the authoritative workflow.
 
-1. Ask the user for the paper — accept any of:
-   - A local PDF file path
-   - A URL (arXiv, Semantic Scholar, direct PDF link)
-   - A pasted abstract or paper title to search for
+Use the paper already supplied in the conversation. If none is identifiable, ask for a PDF, title, DOI, arXiv URL, project page, or paper-library link.
 
-2. If given a URL, fetch the paper content using WebFetch. If given a PDF path, read it using the Read tool (use `pages` parameter for papers over 10 pages — read in chunks of 15-20 pages).
+Apply the skill's source verification, method explanation, rendered architecture and training diagrams, sourced training recipe, benchmark explanations, Paperpile registration, and Notion publishing requirements. Follow its defaults unless the user overrides them. For follow-up questions, reuse the existing review and follow the skill's tested-improvement process.
 
-3. If given only a title or abstract, search for the paper using WebSearch, then fetch it.
-
-4. Once you have the paper content, follow the **paper-reader** skill workflow:
-   - First pass: structure scan
-   - Deep read: extract core content
-   - Synthesize into the structured output format
-
-5. Present the structured notes to the user.
-
-6. After presenting, offer to:
-   - Deep-dive into a specific section
-   - Compare with another paper
-   - Extract all equations/algorithms
-   - Generate citation entry (BibTeX)
-   - Save the notes to a file
+Return the verified review link and a concise result, including any publishing or Paperpile operation that remains pending. Keep workflow details in the skill so this command does not maintain a separate copy.
